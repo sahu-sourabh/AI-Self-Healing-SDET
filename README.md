@@ -1,3 +1,5 @@
+![AI-QE Pipeline](https://github.com/sahu-sourabh/AI-Self-Healing-SDET/actions/workflows/main.yml/badge.svg)
+
 # AI-Self-Healing-SDET: Event-Driven QE Engine 🩺
 
 An enterprise-grade proof-of-concept for **Autonomous Quality Engineering**. This framework integrates AI-driven self-healing logic into a containerized CI/CD pipeline, targeting the elimination of test flakiness in modern E2E suites.

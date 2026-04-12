@@ -29,4 +29,11 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
-          pytest tests/test_unified_flow.py -v
+          pytest tests/test_unified_flow.py -v --html=report.html --self-contained-html
+
+      - name: 📊 Archive Production Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: execution-report-html
+          path: report.html

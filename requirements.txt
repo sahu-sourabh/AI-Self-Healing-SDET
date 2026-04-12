@@ -4,3 +4,4 @@ groq
 pytest
 pytest-asyncio
 requests
+pytest-html
