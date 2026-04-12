@@ -3,46 +3,36 @@ import asyncio
 from dotenv import load_dotenv
 from pydantic_ai import Agent
 
-# 1. Load your Groq Key from the .env in THIS folder
 load_dotenv()
 
-# 2. Define the Agent's "Job Description"
-# This system prompt is your "SDET Architect" persona
+# The Agent is our "Expert SDET"
 test_doctor = Agent(
     'groq:llama-3.3-70b-versatile',
     system_prompt=(
-        "You are a Senior SDET AI Agent. Your expertise is fixing brittle test selectors. "
-        "Analyze the provided failing selector and HTML context to suggest a robust, "
-        "maintainable Playwright selector. Prioritize data-testid and accessible roles."
+        "You are a Senior SDET AI. You specialize in Playwright and Cypress. "
+        "Analyze failed selectors and return ONLY a code-block with the fix."
     )
 )
 
-async def main():
-    print("--- 🩺 AI-Self-Healing-SDET: Diagnosing... ---")
+# MOCK PLAYWRIGHT INTEGRATION
+async def simulate_playwright_failure():
+    """Simulates a real-world Playwright selector timeout."""
+    print("LOG: [Playwright] Error: page.click('button#login-01') - Target closed or timeout.")
     
-    # Example scenario for your portfolio
+    # The 'context' the agent needs
+    html_context = "<button data-testid='login-submit'>Enter</button>"
     failing_selector = "button#login-01"
-    html_context = """
-    <div class="auth-form">
-        <button data-testid="login-submit" class="btn-primary-new" aria-label="Submit Login">
-            Enter Dashboard
-        </button>
-    </div>
-    """
     
-    prompt = f"""
-    The test failed on: '{failing_selector}'.
-    Current HTML: {html_context}
-    
-    Provide the best Playwright selector and a brief 'Senior Engineer' explanation.
-    """
+    print(f"LOG: [Agent] Analyzing DOM for recovery...")
+    response = await test_doctor.run(
+        f"Fix this Playwright failure. Selector: {failing_selector}. HTML: {html_context}"
+    )
+    return response.output
 
-    try:
-        # result.output is the standard text attribute for 2026
-        result = await test_doctor.run(prompt)
-        print(f"\n✅ AI PROPOSAL:\n{result.output}")
-    except Exception as e:
-        print(f"Connection Error: {e}")
+async def main():
+    print("--- 🩺 Starting Autonomous Recovery Cycle ---")
+    fix = await simulate_playwright_failure()
+    print(f"\n✅ RECOVERY CODE GENERATED:\n{fix}")
 
 if __name__ == '__main__':
     asyncio.run(main())
