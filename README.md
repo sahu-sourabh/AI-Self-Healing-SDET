@@ -1,25 +1,30 @@
-![AI-QE Pipeline](https://github.com/sahu-sourabh/AI-Self-Healing-SDET/actions/workflows/main.yml/badge.svg)
-
 # AI-Self-Healing-SDET: Event-Driven QE Engine 🩺
 
-An enterprise-grade proof-of-concept for **Autonomous Quality Engineering**. This framework integrates AI-driven self-healing logic into a containerized CI/CD pipeline, targeting the elimination of test flakiness in modern E2E suites.
+![Build Status](https://github.com/sahu-sourabh/AI-Self-Healing-SDET/actions/workflows/main.yml/badge.gif) 
 
-## 🏗️ Architecture
-* **Modular Core**: Separated logic (`app/`) and test suites (`tests/`) for high scalability.
-* **AI Orchestrator**: Leverages **Llama 3.3 (via Groq)** to perform real-time root-cause analysis on UI/API failures.
-* **CI/CD Integrated**: Automated validation via **GitHub Actions** on every push.
-* **Containerized**: **Dockerized** environment to ensure execution parity across Dev, Staging, and Production.
+An enterprise-grade proof-of-concept for **Autonomous Quality Engineering**. This framework integrates AI-driven self-healing logic into a containerized CI/CD pipeline, targeting the elimination of test flakiness.
+
+## 🏗️ Project Status: Active Development (Foundation Phase)
+I am currently transitioning the framework's core to **Playwright + Python 3.12** to leverage superior async performance and modern web standards.
+
+### 🏗️ Architecture & Roadmap
+- [x] **CI/CD Integrated:** Automated validation via GitHub Actions is LIVE.
+- [x] **Modular Core:** Logic (app/) and test suites (tests/) are separated for scalability.
+- [/] **Core Foundation (Current Sprint):** Implementing robust Playwright Page Objects.
+- [ ] **AI Orchestrator:** Integrating **Pydantic-AI** and **Llama 3.3** for real-time root-cause analysis and DOM healing.
 
 ## 🛠️ Tech Stack
-* **Language**: Python 3.12
-* **Testing**: Pytest, Pytest-Asyncio
-* **AI Framework**: Pydantic-AI
-* **Infrastructure**: Docker, GitHub Actions
-* **LLM**: Groq (Llama 3-70B)
+- **Language:** Python 3.12
+- **Testing:** Pytest, Playwright
+- **AI Framework:** Pydantic-AI
+- **LLM:** Llama 3.3 (via Groq)
+- **Infrastructure:** Docker, GitHub Actions
 
-## 🚀 Getting Started
-1. Clone the repo.
-2. Add your `GROQ_API_KEY` to a `.env` file.
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run locally: `pytest tests/test_unified_flow.py`
-5. Deploy: Push to `main` to trigger the automated CI/CD pipeline.
+## 🚀 Getting Started (Experimental)
+1. **Clone the repo:** `git clone ...`
+2. **Install dependencies:** `pip install -r requirements.txt`
+3. **Playwright Setup:** `playwright install`
+4. **Run Sample:** `pytest tests/test_foundation.py`
+
+---
+*Serving Notice Period | Last Working Day: June 2nd, 2026*
