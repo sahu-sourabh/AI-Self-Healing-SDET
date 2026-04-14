@@ -5,3 +5,9 @@ __pycache__/
 *.pyc
 .cursor/
 report.html
+
+# Added for Playwright/Pytest stability
+test-results/
+payload.json
+.vscode/
+*.log

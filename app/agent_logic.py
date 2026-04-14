@@ -17,9 +17,14 @@ load_dotenv()
 test_doctor = Agent(
     'groq:llama-3.3-70b-versatile',
     system_prompt=(
-        "You are a Senior SDET AI. You specialize in Playwright and API testing. "
-        "Your goal is to analyze failures and provide the most resilient "
-        "locator or fix in a concise code block."
+        "You are a Senior SDET AI. Analyze the provided HTML and the failing locator. "
+        "Find the real element in the HTML that matches the user's intent. "
+        "STRICT RULES: "
+        "1. Do NOT provide examples. "
+        "2. Do NOT provide multiple options. "
+        "3. Your response must ONLY contain the correct CSS selector inside double brackets, "
+        "e.g., [[#login-button]]. "
+        "4. If you cannot find a fix, return [[NONE]]."
     )
 )
 
