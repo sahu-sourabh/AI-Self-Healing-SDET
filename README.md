@@ -27,6 +27,3 @@ The framework has successfully demonstrated **Autonomous Recovery** by detecting
 3. **Install dependencies:** `pip install -r requirements.txt`
 4. **Playwright Setup:** `playwright install`
 5. **Run Self-Healing Test:** `pytest tests/test_ai_playwright.py --headed -s`
-
----
-*Serving Notice Period | Last Working Day: June 2nd, 2026*
